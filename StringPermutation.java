@@ -33,4 +33,16 @@ public class StringPermutations {
         return true;
     }
 
+      public static int nonrepeatingElement(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int j;
+            for ( j = 0; j < array.length; j++)
+                if (i != j && array[i] == array[j])
+                        break;
+                    if (j == array.length)
+                        return array[i];
+                }
+
+        return -1;
+    }
    }
