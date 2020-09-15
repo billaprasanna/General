@@ -111,7 +111,7 @@ public class LinkedListWithNode {
         Node node = new Node(key);
         if(position==1){
             list.head = node;
-            node.next =currentNode.next;
+           node.next =currentNode;
             return list;
         }
         while(currentNode!=null){
