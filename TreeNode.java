@@ -1,3 +1,10 @@
+package com.paypal.interview;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class TreeNode {
 
     static class Node {
@@ -39,6 +46,39 @@ public class TreeNode {
         }
     }
 
+    public static boolean containsElement(Node node, int value) {
+        if(node==null){
+            return false;
+        }
+        if(value == node.value){
+            return true;
+        }
+        return value <node.value ? containsElement(node.left, value) : containsElement(node.right, value);
+    }
+
+    public static void DFS(Node node) {
+
+        if(node==null){
+            System.out.println("Empty tree");
+        }
+        else {
+            Queue<Node> queue = new LinkedList();
+            queue.add(node);
+            while (queue.size()>0) {
+                Node temp = queue.remove();
+                if(temp!=null){
+                System.out.print(temp.value);
+                if (node.left != null) {
+                    queue.add(temp.left);
+                }
+                if (node.right != null) {
+                    queue.add(temp.right);
+                }
+            }
+        }}
+    }
+
+
     public static void main(String args[])
     {
         TreeNode tree = new TreeNode();
@@ -54,6 +94,11 @@ public class TreeNode {
         tree.insert(root, 9);
         System.out.println("Traversing tree in order");
         tree.traverseInOrder(root);
+        System.out.println();
+        DFS(root);
+        System.out.println();
+        System.out.println(containsElement(root, 67));
+        List list = new ArrayList<String>();
 
     }
 
